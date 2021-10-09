@@ -6,13 +6,13 @@ const client = new Client({
   intents: [
     Intents.FLAGS.GUILDS,
     Intents.FLAGS.GUILD_MESSAGES,
-    Intents.DIRECT_MESSAGE_REACTIONS
+    Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
   ]
 })
 
-//Bots Initial Call
-client.
-
+client.on('ready', () => {
+  console.log('10-MAN-RANKED-BOT IS LIVE')
+})
 
 //Bot Login
 client.login(process.env.DISCORD_BOT_TOKEN)
