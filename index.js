@@ -1,5 +1,7 @@
 //Imports
+const game = require("./games.js");
 const { Client, Intents } = require('discord.js');
+
 
 require('dotenv').config();
 
@@ -19,3 +21,4 @@ client.on('ready', () => {
 
 //Bot Login
 client.login(process.env.DISCORD_BOT_TOKEN);
+game.test();
