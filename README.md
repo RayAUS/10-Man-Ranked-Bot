@@ -1,6 +1,11 @@
 
 # Weather bot
-To use bot do ```!weather {city_name}``` in a discord chat to get the weather for the city in REAL TIME! Using an api from https://openweathermap.org/
+To add bot to your discord server use this link https://discord.com/api/oauth2/authorize?client_id=810423361389068298&permissions=10240&scope=bot
+
+Created using typescript, Using an api from https://openweathermap.org/, via the axios javascript library
+
+
+To use bot do ```!weather {city_name}``` in a discord chat to get the weather for the city in REAL TIME! 
 
 Where you replace ```{city_name}``` to a city name (caps insensitive) such as ```London```, ```melbourne```, ```SYDNEY```
 
