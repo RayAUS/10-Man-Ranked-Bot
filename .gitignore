@@ -1,3 +1,5 @@
 .env
 node_modules/
 Commands.txt
+replit/
+index.js
