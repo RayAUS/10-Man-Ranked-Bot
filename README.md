@@ -9,6 +9,8 @@ To use bot do ```!weather {city_name}``` in a discord chat to get the weather fo
 
 Where you replace ```{city_name}``` to a city name (caps insensitive) such as ```London```, ```melbourne```, ```SYDNEY```
 
+To use the code, download code and to complile js file use 'npm run tsc'
+
 <!-- CONTACT -->
 <div id="contact">
   <h2>Contact </h2> 
