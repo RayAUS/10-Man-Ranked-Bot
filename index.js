@@ -60,10 +60,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var discord_js_1 = __importStar(require("discord.js"));
 var dotenv_1 = __importDefault(require("dotenv"));
-var node_fetch_1 = __importDefault(require("node-fetch"));
+var axios_1 = __importDefault(require("axios"));
 dotenv_1.default.config();
 //Constants
-var prefix = '-';
+var prefix = '!';
 var client = new discord_js_1.default.Client({
     intents: [
         discord_js_1.Intents.FLAGS.GUILDS,
@@ -71,18 +71,14 @@ var client = new discord_js_1.default.Client({
         discord_js_1.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
     ]
 });
-//API Functions
 function getWeather(cityName) {
-    return (0, node_fetch_1.default)(new URL("", "api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + process.env.API_KEY))
+    return axios_1.default
+        .get("https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + process.env.API_KEY)
         .then(function (res) {
-        return res.json();
+        return "The weather in " + res["data"]["name"] + " is " + (parseFloat(res["data"]["main"]["temp"]) - 273.15).toFixed(2) + "\u00B0C with " + res["data"]["weather"][0]["description"];
     })
-        .then(function (data) {
-        //Means there was an error
-        if (Object.keys(data).includes("message")) {
-            return "City was not found";
-        }
-        return "The weather in " + data["name"] + " is " + data["message"]["temp"] + " with " + data["weather"]["description"];
+        .catch(function (err) {
+        return "Error";
     });
 }
 //Bot Functions
@@ -94,16 +90,8 @@ client.on('ready', function () { return __awaiter(void 0, void 0, void 0, functi
 }); });
 client.on("messageCreate", function (msg) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
-        if (msg.content.includes("test")) {
-            msg.reply("I WORK!");
-        }
-        return [2 /*return*/];
-    });
-}); });
-client.on("messageCreate", function (msg) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        if (msg.content.includes("!weather ")) {
-            getWeather(msg.content.replace("!weather ", "")).then(function (weather) { return msg.channel.send(weather); });
+        if (msg.content.includes(prefix + "weather ")) {
+            getWeather(msg.content.replace(prefix + "weather ", "")).then(function (weather) { return msg.channel.send(weather); });
         }
         //bot cannot respond to dm's
         if (msg.channel.type === "DM")
