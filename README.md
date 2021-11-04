@@ -1,7 +1,7 @@
 
 # Weather Discord Bot
 
-Created using typescript, Using an api from https://openweathermap.org/, via the axios javascript library
+Created using typescript, Using an api from https://openweathermap.org/, via the axios javascript library. To keep the bot 24/7 I use the express library and essentialy keep the code going as long as it keeps getting ping http requests.
 ## Usage
 
 ### Discord
