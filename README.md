@@ -1,6 +1,7 @@
 
 # Weather Discord Bot
-
+A bot that can find the weather of every major city in the world, this includes temperatures, co-ordinates, and the description of the weather
+## Background
 Created using typescript, Using an api from https://openweathermap.org/, via the axios javascript library. To keep the bot 24/7 I use the express library and essentialy keep the code going as long as it keeps getting ping http requests.
 ## Usage
 
@@ -9,7 +10,7 @@ To add bot to your discord server use this link <br> https://discord.com/api/oau
 To use bot start with ```!help```
 
 ### Source-Code
-To use the code, download code and to complile js file use 'npm run tsc'
+To use the code, download code and to complile js file use `'npm run tsc'`, then to run the js file do `'node index.js'`
 
 ## Bot Status
 https://stats.uptimerobot.com/7MKDkuzWv7
