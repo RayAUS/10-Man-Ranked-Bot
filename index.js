@@ -144,6 +144,7 @@ function getCoord(cityName) {
 function examples(functionName) {
     return ', eg, `!' + functionName + ' melbourne`, `!' + functionName + ' London`, `!' + functionName + ' BeiJinG`\n\n';
 }
+//Function returns a string of which contains the information on how to use the bot (on discord)
 function getHelp() {
     return "ALL FUNCTION ARE **NON**-CASE SENSITIVE!\n" +
         "**`!weather {city}`** where !weather returns the weather for a given city"

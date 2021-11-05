@@ -3,7 +3,7 @@ const express = require("express")
 //Initialising server
 const server = express() 
 
-//Visual feedback to see if the bot is running
+//Visual feedback to see if the bot is runni-ng
 server.all("/", (req, res) => {
   res.send("Bot is running!")
 })
