@@ -28,7 +28,7 @@ Created using typescript, Using an api from [openweathermap.org](https://openwea
 To add bot to your discord server use this [link](https://discord.com/api/oauth2/authorize?client_id=810423361389068298&permissions=10240&scope=bot)<br>
 
 ### Instructions To use bot
-To use bot start with ```!help``` then follow the given messages outputted
+To use bot start with ```!help```(in a given **text channel**) then follow the given messages outputted
 
 ### Bot Status [Here!](https://stats.uptimerobot.com/7MKDkuzWv7)
 
