@@ -11,7 +11,7 @@ A bot that can find the weather of every major city in the world, this includes 
 </div>
 
 ## About the Project
-Created using typescript, Using an api from https://openweathermap.org/, via the axios javascript library. To keep the bot 24/7 I use the express library and essentialy keep the code going as long as it keeps getting ping http requests.
+Created using typescript, Using an api from [openweathermap.org](https://openweathermap.org/api), via the axios javascript library. To keep the bot 24/7 I use the express library and essentialy keep the code going as long as it keeps getting ping http requests.
 
 ### Built With
 
@@ -33,7 +33,7 @@ To use bot start with ```!help``` then follow the given messages outputted
 ### Bot Status [Here!](https://stats.uptimerobot.com/7MKDkuzWv7)
 
 ## Source-Code
-To use the code, download code and to complile js file use `'npm run tsc'`, then to run the js file do `'node index.js'`
+To use the code, download code and to complile js file use `npm run tsc`, then to run the js file do `node index.js`
 
 
 
