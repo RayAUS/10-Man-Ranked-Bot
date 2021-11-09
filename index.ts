@@ -99,23 +99,16 @@ function examples(functionName: string): string{
 }
 
 //Function returns a string of which contains the information on how to use the bot (on discord)
-function getHelp(): string{
-  return "ALL FUNCTION ARE **NON**-CASE SENSITIVE!\n" + 
-         "**`!weather {city}`** where !weather returns the weather for a given city"
-          +
-          examples("weather")
-          +
-         "**`!high {city}`** where !high gives the highest temperature at the moment in the given city" 
-          +
-          examples("high")
-          + 
-         "**`!low {city}`** where !low gives the lowest temperature at the moment in the given city"    +
-          examples("low")
-          + 
-          "**`!coord {city}`** where !coord gives the coordinates of the given city"
-          +
-          examples("coord")
-}
+const getHelp = new DiscordJS.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle("How to use Weather Bot")
+    .setDescription("ALL FUNCTION ARE **NON**-CASE SENSITIVE!")
+    .addFields(
+      {name: "!weather {city}", value: " where `!weather` gives **the weather** for a given city"+examples("weather")},
+      {name: "!high {city}" , value: "where `!high` gives the **highest temperature at the moment** in the given city"+examples("high")},
+      {name: "!low {city}", value: "where `!low` gives the **lowest temperature at the moment** in the given city"+examples("low")},
+      {name: "!coord {city}", value: "where `!coord` gives the **coordinates** of the given city"+examples("coord")}
+    )
 
 //Event handling
 //Bot Functions
@@ -135,25 +128,25 @@ client.on("messageCreate", async msg => {
 
   //If user calls for help
   if (msg.content.includes(help)){
-    msg.reply(getHelp());
+    msg.channel.send({embeds: [getHelp]});
   }
   
   //All these functions wait for the promise to return and then takes the string out of context and replies that string.
   //If user calls for weather and valid city
   if (msg.content.includes(weather)) {
-    getWeather(msg.content.replace(weather, "")).then(weather => msg.reply(weather));
+    getWeather(msg.content.replace(weather, "")).then(weather => msg.channel.send(weather));
   }
   //If user calls for high and valid city
   if (msg.content.includes(high)){
-    getHighTemp(msg.content.replace(high, "")).then(high => msg.reply(high));
+    getHighTemp(msg.content.replace(high, "")).then(high => msg.channel.send(high));
   }
   //If user calls for low and valid city
   if (msg.content.includes(low)){
-    getLowTemp(msg.content.replace(low, "")).then(low => msg.reply(low));
+    getLowTemp(msg.content.replace(low, "")).then(low => msg.channel.send(low));
   }
   //If user calls for coord and valid city
   if (msg.content.includes(coord)){
-    getCoord(msg.content.replace(coord, "")).then(coord => msg.reply(coord));
+    getCoord(msg.content.replace(coord, "")).then(coord => msg.channel.send(coord));
   }
 });
 

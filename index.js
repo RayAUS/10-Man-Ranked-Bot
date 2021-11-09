@@ -145,23 +145,11 @@ function examples(functionName) {
     return ', eg, `!' + functionName + ' melbourne`, `!' + functionName + ' London`, `!' + functionName + ' BeiJinG`\n\n';
 }
 //Function returns a string of which contains the information on how to use the bot (on discord)
-function getHelp() {
-    return "ALL FUNCTION ARE **NON**-CASE SENSITIVE!\n" +
-        "**`!weather {city}`** where !weather returns the weather for a given city"
-        +
-            examples("weather")
-        +
-            "**`!high {city}`** where !high gives the highest temperature at the moment in the given city"
-        +
-            examples("high")
-        +
-            "**`!low {city}`** where !low gives the lowest temperature at the moment in the given city" +
-        examples("low")
-        +
-            "**`!coord {city}`** where !coord gives the coordinates of the given city"
-        +
-            examples("coord");
-}
+var getHelp = new discord_js_1.default.MessageEmbed()
+    .setColor('#0099ff')
+    .setTitle("How to use Weather Bot")
+    .setDescription("ALL FUNCTION ARE **NON**-CASE SENSITIVE!")
+    .addFields({ name: "!weather {city}", value: " where `!weather` gives **the weather** for a given city" + examples("weather") }, { name: "!high {city}", value: "where `!high` gives the **highest temperature at the moment** in the given city" + examples("high") }, { name: "!low {city}", value: "where `!low` gives the **lowest temperature at the moment** in the given city" + examples("low") }, { name: "!coord {city}", value: "where `!coord` gives the **coordinates** of the given city" + examples("coord") });
 //Event handling
 //Bot Functions
 client.on('ready', function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -182,24 +170,24 @@ client.on("messageCreate", function (msg) { return __awaiter(void 0, void 0, voi
         }
         //If user calls for help
         if (msg.content.includes(help)) {
-            msg.reply(getHelp());
+            msg.channel.send({ embeds: [getHelp] });
         }
         //All these functions wait for the promise to return and then takes the string out of context and replies that string.
         //If user calls for weather and valid city
         if (msg.content.includes(weather)) {
-            getWeather(msg.content.replace(weather, "")).then(function (weather) { return msg.reply(weather); });
+            getWeather(msg.content.replace(weather, "")).then(function (weather) { return msg.channel.send(weather); });
         }
         //If user calls for high and valid city
         if (msg.content.includes(high)) {
-            getHighTemp(msg.content.replace(high, "")).then(function (high) { return msg.reply(high); });
+            getHighTemp(msg.content.replace(high, "")).then(function (high) { return msg.channel.send(high); });
         }
         //If user calls for low and valid city
         if (msg.content.includes(low)) {
-            getLowTemp(msg.content.replace(low, "")).then(function (low) { return msg.reply(low); });
+            getLowTemp(msg.content.replace(low, "")).then(function (low) { return msg.channel.send(low); });
         }
         //If user calls for coord and valid city
         if (msg.content.includes(coord)) {
-            getCoord(msg.content.replace(coord, "")).then(function (coord) { return msg.reply(coord); });
+            getCoord(msg.content.replace(coord, "")).then(function (coord) { return msg.channel.send(coord); });
         }
         return [2 /*return*/];
     });
