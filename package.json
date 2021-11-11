@@ -1,5 +1,5 @@
 {
-  "name": "10-man-ranked-bot",
+  "name": "Weather-Discord-Bot",
   "version": "1.0.0",
   "description": "<!-- LOGO -->\r <p align=\"center\">",
   "main": "index.js",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RayAUS/10-Man-Ranked-Bot.git"
+    "url": "git+https://github.com/RayAUS/Weather-Discord-Bot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/RayAUS/10-Man-Ranked-Bot/issues"
+    "url": "https://github.com/RayAUS/Weather-Discord-Bot/issues"
   },
-  "homepage": "https://github.com/RayAUS/10-Man-Ranked-Bot#readme",
+  "homepage": "https://github.com/RayAUS/Weather-Discord-Bot#readme",
   "devDependencies": {
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
