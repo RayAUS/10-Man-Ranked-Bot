@@ -1,3 +1,10 @@
+/**
+ * index.ts
+ * Author: Raymond D'Souza
+ * https://github.com/RayAUS
+ * https://www.linkedin.com/in/raymond-dsouza/
+ */
+
 import DiscordJS, {Intents, Message} from 'discord.js';
 import dotenv from 'dotenv';
 import axios, {AxiosResponse} from 'axios'
